@@ -35,11 +35,11 @@ def step1_understand_documents():
 
     documents = [
         Document(
-            page_content="Dogs are great companions, known for their loyalty and friendliness.",
+            page_content="Dogs are great companions, known for their loyalty and friendliness.",  # 개는 충성심과 친근함으로 알려진 훌륭한 반려동물이다.
             metadata={"source": "mammal-pets-doc"},
         ),
         Document(
-            page_content="Cats are independent pets that often enjoy their own space.",
+            page_content="Cats are independent pets that often enjoy their own space.",  # 고양이는 자기만의 공간을 즐기는 독립적인 반려동물이다.
             metadata={"source": "mammal-pets-doc"},
         ),
     ]
@@ -107,7 +107,7 @@ def step4_create_embeddings():
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
     # 임베딩 테스트
-    sample_text = "LangChain is a framework for building LLM applications."
+    sample_text = "LangChain is a framework for building LLM applications."  # LangChain은 LLM 애플리케이션을 구축하기 위한 프레임워크이다.
     vector = embeddings.embed_query(sample_text)
 
     print(f"\n임베딩 모델: text-embedding-3-large")
@@ -145,7 +145,7 @@ def step6_similarity_search(vector_store):
     print("=" * 60)
 
     # 기본 유사도 검색
-    query = "How many distribution centers does Nike have?"
+    query = "How many distribution centers does Nike have?"  # 나이키는 물류센터가 몇 개인가?
     results = vector_store.similarity_search(query)
 
     print(f"\n쿼리: {query}")
@@ -157,7 +157,7 @@ def step6_similarity_search(vector_store):
 
     # 점수 포함 유사도 검색
     print("\n\n[점수 포함 유사도 검색]")
-    query2 = "What was Nike's revenue?"
+    query2 = "What was Nike's revenue?"  # 나이키의 매출은 얼마인가?
     results_with_score = vector_store.similarity_search_with_score(query2)
 
     print(f"쿼리: {query2}")
@@ -182,7 +182,7 @@ def step7_use_retriever(vector_store):
     )
 
     # 단일 쿼리
-    query = "When was Nike incorporated?"
+    query = "When was Nike incorporated?"  # 나이키는 언제 설립되었는가?
     results = retriever.invoke(query)
 
     print(f"\n쿼리: {query}")
@@ -193,8 +193,8 @@ def step7_use_retriever(vector_store):
     # 배치 쿼리
     print("\n\n[배치 쿼리]")
     batch_queries = [
-        "How many distribution centers does Nike have?",
-        "What was Nike's revenue?",
+        "How many distribution centers does Nike have?",  # 나이키는 물류센터가 몇 개인가?
+        "What was Nike's revenue?",  # 나이키의 매출은 얼마인가?
     ]
     batch_results = retriever.batch(batch_queries)
 
